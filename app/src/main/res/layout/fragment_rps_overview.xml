@@ -140,7 +140,8 @@
             android:layout_marginBottom="5dp"
             android:layout_weight="1"
             android:background="@color/colorPrimary"
-            android:src="@drawable/rock" />
+            android:src="@drawable/rock"
+            android:contentDescription="@string/rock" />
 
         <ImageView
             android:id="@+id/ivPaper"
@@ -152,7 +153,8 @@
             android:layout_marginBottom="5dp"
             android:layout_weight="1"
             android:background="@color/colorPrimary"
-            android:src="@drawable/paper" />
+            android:src="@drawable/paper"
+            android:contentDescription="@string/paper"/>
 
         <ImageView
             android:id="@+id/ivScissors"
@@ -165,6 +167,7 @@
             android:layout_weight="1"
             android:background="@color/colorPrimary"
             android:clickable="false"
-            android:src="@drawable/scissors" />
+            android:src="@drawable/scissors"
+            android:contentDescription="@string/scissors"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

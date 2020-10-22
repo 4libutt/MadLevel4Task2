@@ -5,8 +5,13 @@
     <string name="Instructions">Instructions: select rock, paper or sciccors to play.</string>
     <string name="statsTitle">Your all time statistics</string>
     <string name="Vs">V.S.</string>
-    <string name="win">You win!</string>
     <string name="Computer">Computer</string>
     <string name="you">You</string>
+    <string name="rock">rock</string>
+    <string name="paper">paper</string>
+    <string name="scissors">scissors</string>
+    <string name="draw">It\'s a draw!</string>
+    <string name="win">You win!</string>
+    <string name="loss">You lose!</string>
 
 </resources>
