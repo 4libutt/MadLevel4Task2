@@ -19,4 +19,13 @@ interface GameDao {
 
     @Query("DELETE FROM game_table")
     suspend fun deleteAllGames()
+
+//    @Query("SELECT COUNT(*) FROM game_table WHERE result LIKE 'win'")
+//    suspend fun getGamesResultWins()
+//
+//    @Query("SELECT COUNT(*) FROM game_table WHERE result LIKE 'loss'")
+//    suspend fun getGamesResultLosses()
+//
+//    @Query("SELECT COUNT(*) FROM game_table WHERE result LIKE 'draw'")
+//    suspend fun getGamesResultDraws()
 }

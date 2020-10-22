@@ -34,6 +34,7 @@ class RPSOverviewFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         gameRepository = GameRepository(requireContext())
+//        getGamesStatsFromDatabase()
 
         ivRock.setOnClickListener {
             checkGameResult(ivRock)
@@ -112,9 +113,8 @@ class RPSOverviewFragment : Fragment() {
     }
 
     private fun generatePcMove(){
-        val pcmove = (1..3).random()
 
-        when(pcmove) {
+        when((1..3).random()) {
             1 -> {
                 computerMove = "rock"
 
@@ -147,4 +147,14 @@ class RPSOverviewFragment : Fragment() {
             }
         }
     }
+
+//    private fun getGamesStatsFromDatabase() {
+//        mainScope.launch {
+//            val numOfWins = withContext(Dispatchers.IO) { gameRepository.getAllWins() }
+//            val numOfDraws = withContext(Dispatchers.IO) { gameRepository.getAllDraws() }
+//            val numOfLoses = withContext(Dispatchers.IO) { gameRepository.getAllLoses() }
+//
+//            tvStatistics.text = getString(R.string.allGameStats, numOfWins, numOfLoses, numOfDraws)
+//        }
+//    }
 }
