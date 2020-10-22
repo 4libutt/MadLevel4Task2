@@ -1,6 +1,9 @@
-package com.example.madlevel4task2
+package com.example.madlevel4task2.repository
 
 import android.content.Context
+import com.example.madlevel4task2.dao.GameDao
+import com.example.madlevel4task2.database.GamesRoomDatabase
+import com.example.madlevel4task2.model.Game
 
 class GameRepository(context: Context) {
 

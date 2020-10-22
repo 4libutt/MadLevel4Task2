@@ -1,15 +1,14 @@
-package com.example.madlevel4task2
+package com.example.madlevel4task2.ui
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import kotlinx.android.synthetic.main.activity_main.*
+import com.example.madlevel4task2.R
+import com.example.madlevel4task2.repository.GameRepository
 import kotlinx.android.synthetic.main.fragment_game_history.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

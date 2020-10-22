@@ -1,4 +1,4 @@
-package com.example.madlevel4task2
+package com.example.madlevel4task2.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.madlevel4task2.R
+import com.example.madlevel4task2.model.Game
+import com.example.madlevel4task2.repository.GameRepository
 import kotlinx.android.synthetic.main.fragment_game_history.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

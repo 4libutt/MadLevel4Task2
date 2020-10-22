@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/RPSOverviewFragment"
-        android:name="com.example.madlevel4task2.RPSOverviewFragment"
+        android:name="com.example.madlevel4task2.ui.RPSOverviewFragment"
         android:label="RPS Overview Fragment"
         tools:layout="@layout/fragment_rps_overview">
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/GameHistoryFragment"
-        android:name="com.example.madlevel4task2.GameHistoryFragment"
+        android:name="com.example.madlevel4task2.ui.GameHistoryFragment"
         android:label="Game History Fragment"
         tools:layout="@layout/fragment_game_history">
         <action

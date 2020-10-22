@@ -1,4 +1,4 @@
-package com.example.madlevel4task2
+package com.example.madlevel4task2.model
 
 import androidx.annotation.DrawableRes
 import androidx.room.ColumnInfo
