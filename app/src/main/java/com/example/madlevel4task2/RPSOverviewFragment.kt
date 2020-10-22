@@ -1,13 +1,16 @@
 package com.example.madlevel4task2
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_rps_overview.*
-import kotlinx.android.synthetic.main.item_game.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.util.*
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -15,15 +18,14 @@ import kotlinx.android.synthetic.main.item_game.*
 class RPSOverviewFragment : Fragment() {
     var userMove = "paper"
     var computerMove = "rock"
+    var gameResult = ""
 
     private lateinit var gameRepository: GameRepository
-
-    private val games = arrayListOf<Game>()
-    private val gameAdapter = GameAdapter(games)
+    private val mainScope = CoroutineScope(Dispatchers.Main)
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_rps_overview, container, false)
@@ -54,45 +56,57 @@ class RPSOverviewFragment : Fragment() {
         when(userMove) {
             "rock" -> {
                 ivUserChoice.setImageResource(R.drawable.rock)
-                when(computerMove){
+                when (computerMove) {
                     getString(R.string.rock) -> {
                         tvResults.text = getString(R.string.draw)
+                        gameResult = "draw"
                     }
                     getString(R.string.paper) -> {
                         tvResults.text = getString(R.string.loss)
+                        gameResult = "loss"
                     }
                     getString(R.string.scissors) -> {
                         tvResults.text = getString(R.string.win)
+                        gameResult = "win"
                     }
                 }
+                addGame()
             }
             "paper" -> {
                 ivUserChoice.setImageResource(R.drawable.paper)
-                when(computerMove){
+                when (computerMove) {
                     getString(R.string.rock) -> {
                         tvResults.text = getString(R.string.win)
+                        gameResult = "win"
                     }
                     getString(R.string.paper) -> {
                         tvResults.text = getString(R.string.draw)
+                        gameResult = "draw"
                     }
                     getString(R.string.scissors) -> {
                         tvResults.text = getString(R.string.loss)
+                        gameResult = "loss"
                     }
                 }
+                addGame()
             }
             "scissors" -> {
                 ivUserChoice.setImageResource(R.drawable.scissors)
-                when(computerMove){
+                when (computerMove) {
                     getString(R.string.rock) -> {
                         tvResults.text = getString(R.string.loss)
+                        gameResult = "loss"
                     }
                     getString(R.string.paper) -> {
                         tvResults.text = getString(R.string.win)
+                        gameResult = "win"
                     }
                     getString(R.string.scissors) -> {
                         tvResults.text = getString(R.string.draw)
+                        gameResult = "draw"
                     }
                 }
+                addGame()
             }
         }
     }
@@ -113,6 +127,23 @@ class RPSOverviewFragment : Fragment() {
             3 -> {
                 computerMove = "scissors"
                 ivComputerChoice.setImageResource(R.drawable.scissors)
+            }
+        }
+    }
+
+    private fun addGame() {
+        val gameDate = Date()
+        mainScope.launch {
+            val game = Game(
+                date = gameDate.toString(),
+                computerChoice = computerMove,
+                userChoice = userMove,
+                result = gameResult
+
+            )
+
+            withContext(Dispatchers.IO) {
+                gameRepository.insertGame(game)
             }
         }
     }

@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.fragment_rps_overview.*
 import kotlinx.android.synthetic.main.item_game.view.*
 
 class GameAdapter(private val games: List<Game>) : RecyclerView.Adapter<GameAdapter.ViewHolder>() {
@@ -14,8 +15,28 @@ class GameAdapter(private val games: List<Game>) : RecyclerView.Adapter<GameAdap
         fun databind(game: Game) {
             itemView.tvDate.text = game.date
             itemView.tvGameResults.text = game.result
-            itemView.ivPCMove.setImageResource(game.computerChoice)
-            itemView.ivUserMove.setImageResource(game.userChoice)
+            when(game.computerChoice) {
+                "rock" -> {
+                    itemView.ivPCMove.setImageResource(R.drawable.rock)
+                }
+                "paper" -> {
+                    itemView.ivPCMove.setImageResource(R.drawable.paper)
+                }
+                "scissors" -> {
+                    itemView.ivPCMove.setImageResource(R.drawable.scissors)
+                }
+            }
+            when(game.userChoice) {
+                "rock" -> {
+                    itemView.ivUserMove.setImageResource(R.drawable.rock)
+                }
+                "paper" -> {
+                    itemView.ivUserMove.setImageResource(R.drawable.paper)
+                }
+                "scissors" -> {
+                    itemView.ivUserMove.setImageResource(R.drawable.scissors)
+                }
+            }
 
         }
     }

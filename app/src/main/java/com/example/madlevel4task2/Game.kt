@@ -12,10 +12,10 @@ data class Game (
     var date : String,
 
     @ColumnInfo(name = "computerChoice")
-    @DrawableRes var computerChoice: Int,
+    var computerChoice: String,
 
     @ColumnInfo(name = "userChoice")
-    @DrawableRes var userChoice: Int,
+    var userChoice: String,
 
     @ColumnInfo(name = "result")
     var result: String,
